@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="randnum" Id="{207dc5b8-8440-4437-9179-542f78bfc425}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK randnum
+VAR_OUTPUT
+    RandomNumber : LREAL; (* Generated random number *)
+END_VAR
+
+VAR
+    DRANDFB : DRAND; (* Function Block instance for generating random numbers *)
+	MinValue : LREAL := 10.0; (* Minimum value of the range *)
+    MaxValue : LREAL := 50.0; (* Maximum value of the range *)
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Generate a random number and scale it to the desired range *)
+DRANDFB(Seed := 1); (* Call to generate a random number *)
+RandomNumber := MinValue + (MaxValue - MinValue) * DRANDFB.Num;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

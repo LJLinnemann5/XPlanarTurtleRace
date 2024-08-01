@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{6bd994bd-d87f-4c72-b297-f74b8766d695}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	bStart : BOOL;
+	bEnable: BOOL;
+	bDisable: BOOL;
+	bReset : BOOL;
+	Ready : BOOL;
+	START_RACE: BOOL;
+	nCase : UINT;
+	fbMover : MC_PlanarMover;
+	fbMover2 : MC_PlanarMover;
+	cmdFB: MC_Planarfeedback;
+	stMoverState: MC_Planar_State;
+	stMoverState2: MC_Planar_State;
+	stMoverPositions : ARRAY [1..6] OF PositionXYC;
+	fbDynMove : DynamicConstraint_PathXY;
+	fbDynMoveRace1 : DynamicConstraint_PathXY;
+	fbDynMoveRace2 : DynamicConstraint_PathXY;
+	fbDynRotate : DynamicConstraint_Coordinates;
+	stMoveCOptions : ST_MoveCOptions;
+	cmdFB2:MC_Planarfeedback;
+	randnumFB : randnum;
+	RandSpeed: LREAL;
+	RandSpeed2: LREAL;
+	TON_Timer : TON; // Declare a TON timer instance
+	TimerInterval : TIME := T#2s; // Timer interval of 1 second
+	DebugLog : String;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbMover.Update();
+fbMover2.Update();
+cmdfb.Update();
+cmdfb2.Update();
+stMoverState := fbMover.MCTOPLC.STD.State;
+stMoverState2 := fbMover2.MCTOPLC.STD.State;
+
+IF bEnable THEN
+	fbMover.Enable(cmdfb);
+	fbMover2.Enable(cmdfb2);
+	bEnable := FALSE;
+END_IF
+
+IF bReset THEN
+	fbMover.Reset(cmdFB);
+	fbMover2.Reset(cmdFB2);
+	breset := FALSE;
+END_IF
+
+CASE nCase OF
+	0:
+	TON_Timer(IN := TRUE, PT := TimerInterval);
+		//test state
+		IF TON_Timer.Q THEN
+		randnumFB();
+		RandSpeed := randnumFB.RandomNumber;
+		randnumFB();
+		RandSpeed2 := randnumFB.RandomNumber;
+		TON_Timer(IN := FALSE);
+		END_IF
+
+	10:
+		//setup case
+		randnumFB();
+		RandSpeed := randnumFB.RandomNumber;
+		randnumFB();
+		RandSpeed2 := randnumFB.RandomNumber;
+
+		stMoverPositions[1].SetValuesXYC(180,70,0);
+		stMoverPositions[2].SetValuesXYC(180,400,0);
+		stMoverPositions[3].SetValuesXYC(176,371,0);
+		
+		stMoverPositions[4].SetValuesXYC(60,400,0); // top
+		stMoverPositions[5].SetValuesXYC(60,70,0); // bottom
+		stMoverPositions[6].SetValuesXYC(180,400,0);
+		
+		fbDynMove.SetValuesVADJ(3000,5000,5000,50000);
+		
+		nCase:= 20;
+		
+	20:
+			fbMover.Movetoposition(cmdFB,stMoverPositions[1],fbdynmove,0);
+			fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbdynmove,0);
+			nCase := 30;
+		
+	30:
+		IF cmdFB.Done AND cmdFB2.Done THEN
+			nCase:=40;
+		END_IF
+	40:
+		IF Ready THEN
+		Ready := FALSE;
+		fbMover2.Movetoposition(cmdFB2,stMoverPositions[5],fbdynmove,0);
+		nCase := 50;
+		END_IF
+		
+	50:
+		IF cmdFB2.Done THEN
+			nCase := 60;
+		END_IF
+	
+	60: 
+		IF START_RACE THEN
+			TON_Timer(IN := TRUE, PT := TimerInterval);
+				IF TON_Timer.Q THEN
+					randnumFB();
+					RandSpeed := randnumFB.RandomNumber;
+					randnumFB();
+					RandSpeed2 := randnumFB.RandomNumber;
+					fbDynMoveRace1.SetValuesVADJ(RandSpeed,5000,5000,25000);
+					fbDynMoveRace2.SetValuesVADJ(RandSpeed2,5000,5000,25000);
+					fbMover.Movetoposition(cmdFB,stMoverPositions[2],fbDynMoveRace1,0);
+					fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbDynMoveRace2,0);
+					TON_Timer(IN := FALSE);
+				END_IF
+			END_IF
+				
+			IF cmdFB.Done AND cmdFB2.Done THEN
+				START_RACE := FALSE;
+				IF Ready THEN
+					nCase := 10;
+				END_IF
+			END_IF
+	
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -3,31 +3,36 @@
   <POU Name="MAIN" Id="{6bd994bd-d87f-4c72-b297-f74b8766d695}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	bStart : BOOL;
 	bEnable: BOOL;
+	BEGIN : BOOL;
 	bDisable: BOOL;
 	bReset : BOOL;
 	Ready : BOOL;
 	START_RACE: BOOL;
-	nCase : UINT;
+	nCase : UINT :=10;
 	fbMover : MC_PlanarMover;
 	fbMover2 : MC_PlanarMover;
 	cmdFB: MC_Planarfeedback;
+	cmdFB2:MC_Planarfeedback;
+	cmdFB3:MC_Planarfeedback;
+	cmdFB4:MC_Planarfeedback;
 	stMoverState: MC_Planar_State;
 	stMoverState2: MC_Planar_State;
-	stMoverPositions : ARRAY [1..6] OF PositionXYC;
+	stMoverPositions : ARRAY [1..14] OF PositionXYC;
 	fbDynMove : DynamicConstraint_PathXY;
 	fbDynMoveRace1 : DynamicConstraint_PathXY;
 	fbDynMoveRace2 : DynamicConstraint_PathXY;
 	fbDynRotate : DynamicConstraint_Coordinates;
 	stMoveCOptions : ST_MoveCOptions;
-	cmdFB2:MC_Planarfeedback;
+	
 	randnumFB : randnum;
 	RandSpeed: LREAL;
 	RandSpeed2: LREAL;
 	TON_Timer : TON; // Declare a TON timer instance
 	TimerInterval : TIME := T#2s; // Timer interval of 1 second
-	DebugLog : String;
+	DebugLog : STRING;
+	Turns : ST_MoveCOptions;
+	RaceFinished : TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -51,19 +56,11 @@ IF bReset THEN
 END_IF
 
 CASE nCase OF
-	0:
-	TON_Timer(IN := TRUE, PT := TimerInterval);
-		//test state
-		IF TON_Timer.Q THEN
-		randnumFB();
-		RandSpeed := randnumFB.RandomNumber;
-		randnumFB();
-		RandSpeed2 := randnumFB.RandomNumber;
-		TON_Timer(IN := FALSE);
-		END_IF
+		
+	
 
-	10:
-		//setup case
+	10: // Initialize Race
+		
 		randnumFB();
 		RandSpeed := randnumFB.RandomNumber;
 		randnumFB();
@@ -77,54 +74,132 @@ CASE nCase OF
 		stMoverPositions[5].SetValuesXYC(60,70,0); // bottom
 		stMoverPositions[6].SetValuesXYC(180,400,0);
 		
+		stMoverPositions[10].SetValuesXYC(60,200,0); //half1
+		stMoverPositions[9].SetValuesXYC(180,200,0); //half2
+		stMoverPositions[8].SetValuesXYC(60,400,0); //finish 1
+		stMoverPositions[7].SetValuesXYC(180,400,0); //finish 2
+		
+		stMoverPositions[11].SetValuesXYC(120,120,0); //mid2mover 
+		stMoverPositions[12].SetValuesXYC(120,360,0); //mid1mover
+		stMoverPositions[13].SetValuesXYC(180,120,0); //Mover 1 Middle Offset
+		stMoverPositions[14].SetValuesXYC(60,360,0); //Mover 2 Middle Offset
+		
 		fbDynMove.SetValuesVADJ(3000,5000,5000,50000);
 		
 		nCase:= 20;
 		
-	20:
+	20: // Move to opposite ends for start
 			fbMover.Movetoposition(cmdFB,stMoverPositions[1],fbdynmove,0);
 			fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbdynmove,0);
+			fbMover.MoveZ(cmdFB3,5,fbdynmove);
+			fbMover2.MoveZ(cmdFB4,5,fbdynmove);
 			nCase := 30;
 		
-	30:
+	30: // wait for move
 		IF cmdFB.Done AND cmdFB2.Done THEN
 			nCase:=40;
 		END_IF
-	40:
-		IF Ready THEN
-		Ready := FALSE;
+	40: // move to start
+		fbMover.Movetoposition(cmdFB,stMoverPositions[1],fbdynmove,0);
 		fbMover2.Movetoposition(cmdFB2,stMoverPositions[5],fbdynmove,0);
 		nCase := 50;
-		END_IF
 		
-	50:
+	50: // wait for move
 		IF cmdFB2.Done THEN
 			nCase := 60;
 		END_IF
 	
-	60: 
+	(*60: // race
 		IF START_RACE THEN
 			TON_Timer(IN := TRUE, PT := TimerInterval);
-				IF TON_Timer.Q THEN
-					randnumFB();
-					RandSpeed := randnumFB.RandomNumber;
-					randnumFB();
-					RandSpeed2 := randnumFB.RandomNumber;
-					fbDynMoveRace1.SetValuesVADJ(RandSpeed,5000,5000,25000);
-					fbDynMoveRace2.SetValuesVADJ(RandSpeed2,5000,5000,25000);
-					fbMover.Movetoposition(cmdFB,stMoverPositions[2],fbDynMoveRace1,0);
-					fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbDynMoveRace2,0);
-					TON_Timer(IN := FALSE);
-				END_IF
+			IF TON_Timer.Q THEN
+				randnumFB();
+				RandSpeed := randnumFB.RandomNumber;
+				randnumFB();
+				RandSpeed2 := randnumFB.RandomNumber;
+				fbDynMoveRace1.SetValuesVADJ(RandSpeed,5000,5000,25000);
+				fbDynMoveRace2.SetValuesVADJ(RandSpeed2,5000,5000,25000);
+				fbMover.Movetoposition(cmdFB,stMoverPositions[2],fbDynMoveRace1,0);
+				fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbDynMoveRace2,0);
+				TON_Timer(IN := FALSE);
 			END_IF
-				
-			IF cmdFB.Done AND cmdFB2.Done THEN
-				START_RACE := FALSE;
-				IF Ready THEN
-					nCase := 10;
-				END_IF
+		END_IF
+		IF cmdFB.Done AND cmdFB2.Done AND Start_Race THEN
+			START_RACE := FALSE;
+			nCase := 70;
+		END_IF
+		*)
+	60: // Start Race
+		IF START_RACE THEN
+			randnumFB();
+			RandSpeed := randnumFB.RandomNumber;
+			randnumFB();
+			RandSpeed2 := randnumFB.RandomNumber;
+			fbDynMoveRace1.SetValuesVADJ(RandSpeed,5000,5000,25000);
+			fbDynMoveRace2.SetValuesVADJ(RandSpeed2,5000,5000,25000);
+			fbMover.Movetoposition(cmdFB,stMoverPositions[2],fbDynMoveRace1,0);
+			fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbDynMoveRace2,0);
+			nCase := 61;
+		END_IF
+	61: // Variable Speed
+		TON_Timer(IN := TRUE, PT := TimerInterval);
+			IF TON_Timer.Q THEN
+				randnumFB();
+				RandSpeed := randnumFB.RandomNumber;
+				randnumFB();
+				RandSpeed2 := randnumFB.RandomNumber;
+				fbDynMoveRace1.SetValuesVADJ(RandSpeed,5000,5000,25000);
+				fbDynMoveRace2.SetValuesVADJ(RandSpeed2,5000,5000,25000);
+				fbMover.Movetoposition(cmdFB,stMoverPositions[2],fbDynMoveRace1,0);
+				fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbDynMoveRace2,0);
+				//fbMover.Reset(cmdFB);
+				//fbMover2.Reset(cmdFB2);
+				TON_Timer(IN := FALSE);
+				nCase := 61;
+			END_IF
+			
+		IF cmdFB.Done AND cmdFB2.Done THEN
+			RaceFinished(IN:= TRUE, PT:= T#2S, Q=> , ET=> );
+			//START_RACE := FALSE;
+			IF RaceFinished.Q THEN
+				nCase := 70;
+				RaceFinished.IN := FALSE;
+			END_IF
+		END_IF
+	70: // Move to Spin OFfsets
+		fbDynMove.SetValuesVADJ(1000,2000,2000,50000);
+		fbMover.Movetoposition(cmdFB,stMoverPositions[13],fbdynmove,0);
+		fbMover2.Movetoposition(cmdFB2,stMoverPositions[14],fbdynmove,0);
+		nCase:=71;
+		
+	71: // Wait for Spin Offsets
+		IF cmdFB.Done AND cmdFB2.Done THEN
+				nCase:=72;
+		END_IF
+	
+	72: // Move to Spin Positions
+		fbMover.Movetoposition(cmdFB,stMoverPositions[11],fbdynmove,0);
+		fbMover2.Movetoposition(cmdFB2,stMoverPositions[12],fbdynmove,0);
+		nCase:=73;
+		
+	73: // Wait for Spin Positions
+		IF cmdFB.Done AND cmdFB2.Done THEN
+				nCase:=74;
+		END_IF
+		
+	74: // Spin
+			Turns.additionalTurns := 5;
+			Turns.direction := 1;
+			fbMover.MoveC(cmdFB, 360, fbdynmove, Turns);
+			fbMover2.MoveC(cmdFB2, 360, fbdynmove, Turns);
+			nCase:=75;
+		
+	75: // Wait for Spin
+		IF cmdFB.Done AND cmdFB2.Done THEN
+				nCase:=10;
 			END_IF
 	
+				
 END_CASE]]></ST>
     </Implementation>
   </POU>

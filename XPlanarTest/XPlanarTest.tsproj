@@ -3465,7 +3465,7 @@
 			<Parameters>
 				<Group><![CDATA[General]]></Group>
 				<Group Collapsed="true"><![CDATA[Simulation]]></Group>
-				<Group><![CDATA[Maximum Dynamics]]></Group>
+				<Group Collapsed="true"><![CDATA[Maximum Dynamics]]></Group>
 				<Group Collapsed="true"><![CDATA[Default Dynamics]]></Group>
 				<Group Collapsed="true"><![CDATA[Monitoring]]></Group>
 				<Group Collapsed="true"><![CDATA[Internal]]></Group>
@@ -8721,7 +8721,7 @@
 								<Group><![CDATA[Controller]]></Group>
 								<Group Collapsed="true"><![CDATA[Methods]]></Group>
 								<Group Collapsed="true"><![CDATA[Feedback]]></Group>
-								<Group Collapsed="true"><![CDATA[PositionOffset]]></Group>
+								<Group><![CDATA[PositionOffset]]></Group>
 								<Group><![CDATA[MoverCommunication]]></Group>
 								<Group><![CDATA[MoverCommunicationStatus]]></Group>
 								<Group><![CDATA[MoverCommunicationData]]></Group>
@@ -11511,7 +11511,7 @@
 		</Motion>
 		<Plc>
 			<Project GUID="{7375F502-A794-4138-A3BD-F10E14394FD3}" Name="Xplanar" PrjFilePath="Xplanar\Xplanar.plcproj" TmcFilePath="Xplanar\Xplanar.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{32D0A3D1-EC7D-2D98-58B4-DAC186206E3A}" TmcPath="Xplanar\Xplanar.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{75C55E77-E350-812F-C72E-A50C4D178975}" TmcPath="Xplanar\Xplanar.tmc">
 					<Name>Xplanar Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">

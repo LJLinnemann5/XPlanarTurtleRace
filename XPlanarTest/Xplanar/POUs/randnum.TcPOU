@@ -8,8 +8,8 @@ END_VAR
 
 VAR
     DRANDFB : DRAND; (* Function Block instance for generating random numbers *)
-	MinValue : LREAL := 10.0; (* Minimum value of the range *)
-    MaxValue : LREAL := 50.0; (* Maximum value of the range *)
+	MinValue : LREAL := 20.0; (* Minimum value of the range *)
+    MaxValue : LREAL := 30.0; (* Maximum value of the range *)
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* Generate a random number and scale it to the desired range *)

@@ -37,6 +37,9 @@ VAR
 	Turtle_1_Winner : BOOL ;
 	Turtle_2_Winner: BOOL;
 	
+	HMI_Settings_Hide : BOOL;
+	
+	Enabled_State: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -50,7 +53,9 @@ stMoverState2 := fbMover2.MCTOPLC.STD.State;
 IF bEnable THEN
 	fbMover.Enable(cmdfb);
 	fbMover2.Enable(cmdfb2);
-	bEnable := FALSE;
+	bEnable:= FALSE;
+	Enabled_State := TRUE;
+	
 END_IF
 
 IF bReset THEN

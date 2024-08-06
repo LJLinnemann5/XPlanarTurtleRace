@@ -14,19 +14,20 @@ END_VAR
       <ST><![CDATA[Trigger1(CLK:= main.Turtle_1_Winner OR main.Turtle_2_Winner, Q=> );
 
 IF Trigger1.Q THEN
+	IF WInner_Array[1] <> 0 THEN
+		FOR i := 10 TO 2 BY -1 DO
+  		Winner_Array[i] := Winner_Array[i-1];
+		END_FOR 
+	END_IF
 	
 	IF main.Turtle_1_Winner THEN
-		Winner_Array[i] := 1;
+		Winner_Array[1] := 1;
 	END_IF
 	IF main.Turtle_2_Winner THEN
-		Winner_Array[i] := 2;
+		Winner_Array[1] := 2;
 	END_IF
-	i:=i+1;
 END_IF
-
-IF i = 10 THEN
-	i:=1;
-END_IF]]></ST>
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

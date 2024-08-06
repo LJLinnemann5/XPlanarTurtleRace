@@ -20,9 +20,9 @@
             <v n="VisuInternal">false</v>
             <v n="CurrentVisuGlobal">false</v>
             <v n="FileTransferMode">true</v>
-            <v n="VisuStyle">"Default, 3.1.9.0 (Beckhoff Automation GmbH)"</v>
+            <v n="VisuStyle">"XS style, 3.1.7.0 (Beckhoff Automation GmbH)"</v>
             <v n="MaxNumOfClients">100</v>
-            <n n="Language" />
+            <v n="Language">"en"</v>
             <v n="NumpadDialog">"VisuDialogs.Numpad"</v>
             <v n="KeypadDialog">"VisuDialogs.Keypad"</v>
             <v n="InputWithLimitsDialog">"VisuDialogs.TextinputWithLimits"</v>
@@ -48,7 +48,7 @@
             <v n="AnimationDuration">200</v>
             <v n="ConvertImages">false</v>
             <v n="ConversionType">""</v>
-            <v n="BackImage">""</v>
+            <v n="BackImage">"ImagePool.racetrack"</v>
             <v n="BackImageTop">0</v>
             <v n="BackImageLeft">0</v>
             <v n="BackImageBot">0</v>

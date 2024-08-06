@@ -11511,7 +11511,7 @@
 		</Motion>
 		<Plc>
 			<Project GUID="{7375F502-A794-4138-A3BD-F10E14394FD3}" Name="Xplanar" PrjFilePath="Xplanar\Xplanar.plcproj" TmcFilePath="Xplanar\Xplanar.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{75055E03-F2CF-E80C-6BC5-5276C2C2FD26}" TmcPath="Xplanar\Xplanar.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{B246B267-A8FD-E81F-424B-CF097658EB3B}" TmcPath="Xplanar\Xplanar.tmc">
 					<Name>Xplanar Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">

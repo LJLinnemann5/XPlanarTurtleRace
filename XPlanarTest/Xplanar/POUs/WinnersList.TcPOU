@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="WinnersList" Id="{9748af6d-9f06-4a36-949f-4beb6100f2cc}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM WinnersList
+VAR
+	Trigger1 : R_Trig;
+	
+	Winner_Array : ARRAY [1..10] OF INT;
+	
+	i: INT := 1; // WInner Array indexing number
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Trigger1(CLK:= main.Turtle_1_Winner OR main.Turtle_2_Winner, Q=> );
+
+IF Trigger1.Q THEN
+	
+	IF main.Turtle_1_Winner THEN
+		Winner_Array[i] := 1;
+	END_IF
+	IF main.Turtle_2_Winner THEN
+		Winner_Array[i] := 2;
+	END_IF
+	i:=i+1;
+END_IF
+
+IF i = 10 THEN
+	i:=1;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

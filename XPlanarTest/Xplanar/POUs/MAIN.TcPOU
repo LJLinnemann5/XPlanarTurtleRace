@@ -33,6 +33,10 @@ VAR
 	DebugLog : STRING;
 	Turns : ST_MoveCOptions;
 	RaceFinished : TON;
+	
+	Turtle_1_Winner : BOOL ;
+	Turtle_2_Winner: BOOL;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -86,17 +90,21 @@ CASE nCase OF
 		
 		fbDynMove.SetValuesVADJ(3000,5000,5000,50000);
 		
+		Turtle_1_Winner := FALSE;
+		Turtle_2_Winner := FALSE;
+		
 		nCase:= 20;
 		
 	20: // Move to opposite ends for start
+			fbMover.MoveZ(cmdFB3,3,fbdynmove);
+			fbMover2.MoveZ(cmdFB4,3,fbdynmove);
 			fbMover.Movetoposition(cmdFB,stMoverPositions[1],fbdynmove,0);
 			fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbdynmove,0);
-			fbMover.MoveZ(cmdFB3,5,fbdynmove);
-			fbMover2.MoveZ(cmdFB4,5,fbdynmove);
+			
 			nCase := 30;
 		
 	30: // wait for move
-		IF cmdFB.Done AND cmdFB2.Done THEN
+		IF cmdFB.Done AND cmdFB2.Done  THEN
 			nCase:=40;
 		END_IF
 	40: // move to start
@@ -158,6 +166,14 @@ CASE nCase OF
 				nCase := 61;
 			END_IF
 			
+		IF 	cmdFB.Done AND NOT cmdFB2.done THEN
+			Turtle_1_Winner := TRUE;
+		END_IF
+		IF NOT cmdFB.done AND cmdFB2.Done THEN
+			Turtle_2_Winner := TRUE;
+		END_IF
+			
+			
 		IF cmdFB.Done AND cmdFB2.Done THEN
 			RaceFinished(IN:= TRUE, PT:= T#2S, Q=> , ET=> );
 			//START_RACE := FALSE;
@@ -188,7 +204,7 @@ CASE nCase OF
 		END_IF
 		
 	74: // Spin
-			Turns.additionalTurns := 5;
+			Turns.additionalTurns := 3;
 			Turns.direction := 1;
 			fbMover.MoveC(cmdFB, 360, fbdynmove, Turns);
 			fbMover2.MoveC(cmdFB2, 360, fbdynmove, Turns);
@@ -200,7 +216,11 @@ CASE nCase OF
 			END_IF
 	
 				
-END_CASE]]></ST>
+END_CASE
+
+WinnersList();
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

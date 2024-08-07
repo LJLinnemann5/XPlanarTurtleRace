@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="TurtleNames" Id="{babf16e0-1567-4563-878f-d7bb7aba76d1}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+{attribute 'to_string'}
+TYPE TurtleNames :
+(
+	Batman := 1,Superman:=2
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

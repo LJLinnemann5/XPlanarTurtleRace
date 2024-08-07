@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Traffic_Light" Id="{d908c930-9598-48b5-aca2-d3a7bafb8a54}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Traffic_Light
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Traffic_timer.IN := Start_Button_Pressed;
+Traffic_Timer.PT := T#3S;
+Traffic_timer();
+
+
+IF Start_Button_Pressed THEN				//Turns HMI Traffic Light Green
+	TlGreenVisibility := 'visible';
+	TlYellowVisibility := 'Collapsed';
+	TlRedVisibility := 'Collapsed';
+END_IF
+
+IF Traffic_Timer.ET > T#0S THEN				//Turns HMI Traffic Light Yellow
+	TlGreenVisibility := 'Collapsed';
+	TlYellowVisibility := 'visible';
+	TlRedVisibility := 'Collapsed';
+END_IF
+
+IF NOT Traffic_Timer.Q THEN					//Turns HMI Traffic Light Red
+	TlGreenVisibility := 'Collapsed';
+	TlYellowVisibility := 'Collapsed';
+	TlRedVisibility := 'visible';
+	
+	Traffic_Timer.IN := FALSE;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

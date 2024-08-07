@@ -5,13 +5,14 @@
 VAR
 	Trigger1 : R_Trig;
 	
-	Winner_Array : ARRAY [1..10] OF INT;
+	Winner_Array : ARRAY [1..10] OF TurtleNames;
 	
 	i: INT := 1; // WInner Array indexing number
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Trigger1(CLK:= main.Turtle_1_Winner OR main.Turtle_2_Winner, Q=> );
+      <ST><![CDATA[Trigger1(CLK:= Turtle_1_Winner OR Turtle_2_Winner, Q=> );
 
 IF Trigger1.Q THEN
 	IF WInner_Array[1] <> 0 THEN
@@ -20,11 +21,11 @@ IF Trigger1.Q THEN
 		END_FOR 
 	END_IF
 	
-	IF main.Turtle_1_Winner THEN
-		Winner_Array[1] := 1;
+	IF Turtle_1_Winner THEN
+		Winner_Array[1] := TurtleNames.Batman;
 	END_IF
-	IF main.Turtle_2_Winner THEN
-		Winner_Array[1] := 2;
+	IF Turtle_2_Winner THEN
+		Winner_Array[1] := TurtleNames.Superman;
 	END_IF
 END_IF
 ]]></ST>

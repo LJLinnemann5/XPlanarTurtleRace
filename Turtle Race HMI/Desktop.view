@@ -1,0 +1,542 @@
+<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-unit="%" data-tchmi-width="100" data-tchmi-height-unit="%" data-tchmi-height="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width="100" data-tchmi-background-image-height="100" data-tchmi-creator-viewport-width="7680">
+  
+<div id="TcHmiDesktopGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-left="0" data-tchmi-top="0" data-tchmi-height-unit="%" data-tchmi-width-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px">
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">[
+        {
+        "width": 1.0,
+        "widthUnit": "factor",
+        "widthMode": "Value",
+        "maxWidthUnit": "px",
+        "minWidthUnit": "px",
+        "overflow": true
+        }
+        ]</script><script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">[
+        {
+        "height": 90.0,
+        "heightUnit": "px",
+        "heightMode": "Value",
+        "maxHeightUnit": "px",
+        "minHeight": 90.0,
+        "minHeightUnit": "px",
+        "overflow": true
+        },
+        {
+        "height": 50.0,
+        "heightUnit": "px",
+        "heightMode": "Value",
+        "maxHeightUnit": "px",
+        "minHeight": 50.0,
+        "minHeightUnit": "px",
+        "overflow": true
+        },
+        {
+        "height": 1.0,
+        "heightUnit": "factor",
+        "heightMode": "Value",
+        "maxHeightUnit": "px",
+        "minHeightUnit": "px",
+        "overflow": true
+        }
+        ]</script><div id="TcHmiHeaderGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-left="0" data-tchmi-top="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-height-unit="%" data-tchmi-width-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px">
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">[
+        {
+        "width": 1.0,
+        "widthUnit": "factor",
+        "widthMode": "Value",
+        "maxWidthUnit": "px",
+        "minWidthUnit": "px",
+        "overflow": false
+        },
+        {
+        "width": 1.0,
+        "widthUnit": "factor",
+        "widthMode": "Value",
+        "maxWidthUnit": "px",
+        "minWidthUnit": "px",
+        "overflow": false
+        },
+        {"width": 1.0,
+        "widthUnit": "factor",
+        "widthMode": "Value",
+        "maxWidthUnit": "px",
+        "minWidthUnit": "px",
+        "overflow": false
+        }
+        ]</script><script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">[
+        {
+        "height": 1,
+        "heightUnit": "factor",
+        "heightMode": "Value",
+        "maxHeightUnit": "px",
+        "minHeightUnit": "px"
+        }
+        ]</script><script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+"background-header"
+]
+</script><div id="TcHmiBeckhoffLogoImage" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-width="206" data-tchmi-height="40" data-tchmi-left="40" data-tchmi-top="25" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-height-unit="px" data-tchmi-width-unit="px" data-tchmi-left-unit="px" data-tchmi-top-unit="px">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiBeckhoffLogoImage.onPressed",
+    "actions": [
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "HostContent_TcHmiBreadCrumbControl",
+        "fn": "clearDisplay",
+        "asyncWait": true
+      },
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiNavBarMenu",
+        "fn": "closeMenu",
+        "asyncWait": true
+      },
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiNavBarLanguage",
+        "fn": "closeMenu",
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%HostContent_TcHmiHostRegion::TargetContent%/ctrl%",
+        "valueType": "tchmi:framework#/definitions/ContentPath",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Pages/Controls.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "HostContent_TcHmiBreadCrumbControl",
+        "fn": "clearDisplay",
+        "asyncWait": true
+      },
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiNavBarMenu",
+        "fn": "closeMenu",
+        "asyncWait": true
+      },
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiNavBarLanguage",
+        "fn": "closeMenu",
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%HostContent_TcHmiHostRegion::TargetContent%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "Pages/Controls.content"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%ButtonVisibility%/i%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script><script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+"Logo"
+]
+</script></div><div id="TcHmiNavBarLanguage" data-tchmi-type="TcHmi.Controls.ResponsiveNavigation.TcHmiNavigationBar" data-tchmi-width="160" data-tchmi-height="100" data-tchmi-top="0" data-tchmi-grid-column-index="2" data-tchmi-grid-row-index="0" data-tchmi-height-unit="%" data-tchmi-width-unit="px" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-right="40" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-alignment-bottom="False" data-tchmi-alignment-top="True" data-tchmi-enable-mobile-switch="False" data-tchmi-nav-content-control="%ctrl%TcHmiNavContentLanguage%/ctrl%" data-tchmi-font-size="170" data-tchmi-listen-window-resize="True" data-tchmi-padding-left-right="0">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+"language-selection"
+]
+</script><script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+        {
+        "event": "TcHmiNavBarLanguage.onMenuOpened",
+        "actions": [
+        {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiNavBarMenu",
+        "fn": "closeMenu"
+        }
+        ]
+        },
+        {
+        "event": "TcHmiNavBarLanguage.onPageCalled",
+        "actions": [
+        {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+        {
+        "if": [
+        {
+        "compare1": {
+        "objectType": "Symbol",
+        "valueType": "tchmi:general#/definitions/String",
+        "symbolExpression": "%ctrl%TcHmiNavBarLanguage::LastEventParameter%/ctrl%"
+        },
+        "compare2": {
+        "objectType": "StaticValue",
+        "valueType": "tchmi:general#/definitions/String",
+        "value": "PARAMETER_NOT_SET"
+        },
+        "compareOperator": "!=",
+        "logic": null
+        }
+        ],
+        "then": [
+        {
+        "objectType": "Function",
+        "active": true,
+        "fn": "SetLocale",
+        "fnParams": [
+        {
+        "objectType": "Symbol",
+        "valueType": "tchmi:general#/definitions/ProjectLocale",
+        "symbolExpression": "%ctrl%TcHmiNavBarLanguage::LastEventParameter%/ctrl%"
+        }
+        ],
+        "asyncWait": true
+        },
+        {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.UpdateLanguageIcon",
+        "fnParams": [
+        {
+        "objectType": "Symbol",
+        "valueType": "tchmi:framework#/definitions/Control",
+        "symbolExpression": "%ctrl%TcHmiNavBarLanguage%/ctrl%"
+        },
+        {
+        "objectType": "Symbol",
+        "valueType": "tchmi:general#/definitions/String",
+        "symbolExpression": "%ctrl%TcHmiNavBarLanguage::LastEventParameter%/ctrl%"
+        }
+        ],
+        "asyncWait": true
+        }
+        ]
+        },
+        {
+        "else": []
+        }
+        ],
+        "asyncWait": true
+        }
+        ]
+        },
+        {
+        "event": "TcHmiNavBarLanguage.onAttached",
+        "actions": [
+        {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.UpdateLanguageIcon",
+        "fnParams": [
+        {
+        "objectType": "Symbol",
+        "valueType": "tchmi:framework#/definitions/Control",
+        "symbolExpression": "%ctrl%TcHmiNavBarLanguage%/ctrl%"
+        },
+        {
+        "objectType": "FunctionExpression",
+        "functionExpression": "GetLocale()"
+        }
+        ],
+        "asyncWait": true
+        }
+        ]
+        }
+        ]</script><script data-tchmi-target-attribute="data-tchmi-menu-source-data" type="application/json">[
+        {
+        "name": "%l%L_Language%/l%",
+        "subtitle": "%l%L_LanguageSelection%/l%",
+        "image": "Themes/Base/Images/Flags/en_us.png",
+        "imageWidthUnit": "px",
+        "imageHeightUnit": "px",
+        "children": [
+        {
+        "name": "",
+        "children": [
+        {
+        "name": "%l%L_German%/l%",
+        "parameter": "de",
+        "image": "Themes/Base/Images/Flags/de.png",
+        "imageWidthUnit": "px",
+        "imageHeightUnit": "px"
+        }
+        ]
+        },
+        {
+        "name": "",
+        "children": [
+        {
+        "name": "%l%L_English%/l%",
+        "parameter": "en",
+        "image": "Themes/Base/Images/Flags/en_us.png",
+        "imageWidthUnit": "px",
+        "imageHeightUnit": "px"
+        }
+        ]
+        }
+        ]
+        }
+        ]</script><script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{"color": "rgba(0, 0, 0, 0)"}
+</script></div></div>><div id="TcHmiNavBarMenu" data-tchmi-type="TcHmi.Controls.ResponsiveNavigation.TcHmiNavigationBar" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-left="0" data-tchmi-top="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-height-unit="%" data-tchmi-width-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom="0" data-tchmi-bottom-unit="px" data-tchmi-alignment-top="False" data-tchmi-alignment-bottom="True" data-tchmi-nav-content-control-symbol="%ctrl%TcHmiNavContentMenu%/ctrl%" data-tchmi-nav-target-region-control-symbol="%ctrl%HostContent_TcHmiHostRegion%/ctrl%" data-tchmi-bread-crumb-control-symbol="%ctrl%HostContent_TcHmiBreadCrumbControl%/ctrl%" data-tchmi-alignment="Top" data-tchmi-mobile-icon-width="40" data-tchmi-mobile-icon-height="40" data-tchmi-listen-window-resize="False" data-tchmi-mouse-over-show="False" data-tchmi-font-size="140" data-tchmi-padding-left-right="40" data-tchmi-switch-breakpoint="800" data-tchmi-enable-mobile-switch="True">
+
+</div><div id="TcHmiNavContentMenu" data-tchmi-type="TcHmi.Controls.ResponsiveNavigation.TcHmiNavigationContent" data-tchmi-height-mode="Content" data-tchmi-width="100" data-tchmi-height="550" data-tchmi-left="0" data-tchmi-top="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height-unit="px" data-tchmi-width-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-zindex="20" data-tchmi-show-icons-mobile="False" data-tchmi-enable-mobile-switch="True" data-tchmi-close-test="%l%L_CloseText%/l%" data-tchmi-subtitle-font-size="130" data-tchmi-column-title-font-size="130" data-tchmi-column-element-font-size="120" data-tchmi-close-font-size="130" data-tchmi-padding-left-right="40" data-tchmi-column-element-margin-top="5" data-tchmi-mobile-element-margin-top="5" data-tchmi-auto-collapse-elements="False">
+
+</div><div id="TcHmiNavContentLanguage" data-tchmi-type="TcHmi.Controls.ResponsiveNavigation.TcHmiNavigationContent" data-tchmi-height-mode="Content" data-tchmi-width="100" data-tchmi-height="260" data-tchmi-left="0" data-tchmi-top="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-height-unit="px" data-tchmi-width-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-show-icons-mobile="True" data-tchmi-zindex="20" data-tchmi-close-test="%l%L_CloseText%/l%" data-tchmi-column-element-font-size="130" data-tchmi-subtitle-font-size="140" data-tchmi-column-title-font-size="130">
+
+</div>
+<div id="hTcHmiImage_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="990" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="-54" data-tchmi-top-unit="px" data-tchmi-width="1920" data-tchmi-width-unit="px" data-tchmi-src="Images/race-track-with-start-or-finish-line-free-vector.jpg">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%ButtonVisibility%/i%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiImage_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="983" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="-50" data-tchmi-top-unit="px" data-tchmi-width="1922" data-tchmi-width-unit="px" data-tchmi-src="Images/dashboard.jpeg" data-tchmi-visibility="%i%ButtonVisibility%/i%" data-tchmi-creator-visibility="Collapsed" data-tchmi-zindex="21">
+</div>
+<div id="TcHmiImage_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="78" data-tchmi-height-unit="px" data-tchmi-left="788" data-tchmi-left-unit="px" data-tchmi-top="421" data-tchmi-top-unit="px" data-tchmi-width="78" data-tchmi-width-unit="px" data-tchmi-src="Images/pngtree-start-engine-button-vector-illustration-for-2d-and-3d-games-png-image_6963923.png" data-tchmi-visibility="%i%ButtonVisibility%/i%" data-tchmi-creator-visibility="Collapsed" data-tchmi-zindex="22">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%ButtonVisibility%/i%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%ADS.PLC1.GVL.bEnable%/s%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiImage_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="173" data-tchmi-height-unit="px" data-tchmi-left="72" data-tchmi-left-unit="px" data-tchmi-top="257" data-tchmi-top-unit="px" data-tchmi-width="234" data-tchmi-width-unit="px" data-tchmi-src="Images/checkered flag.png">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%ADS.PLC1.GVL.Start_Button_Pressed%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%ADS.PLC1.GVL.Start_Button_Pressed%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%ADS.PLC1.GVL.Start_Button_Pressed%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Red" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="454" data-tchmi-height-unit="px" data-tchmi-left="759" data-tchmi-left-unit="px" data-tchmi-src="Images/TrafficRed-removebg-preview.png" data-tchmi-top="-148" data-tchmi-top-unit="px" data-tchmi-width="421" data-tchmi-width-unit="px" data-tchmi-creator-visibility="Visible" data-tchmi-visibility="%s%ADS.PLC1.GVL.TlRedVisibility%/s%">
+
+<script data-tchmi-target-attribute="data-tchmi-transform" type="application/json">
+[
+  {
+    "transformType": "Rotate",
+    "angle": -90.0
+  }
+]
+</script>
+</div>
+<div id="Yellow" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="455" data-tchmi-height-unit="px" data-tchmi-left="726" data-tchmi-left-unit="px" data-tchmi-src="Images/TrafficYellow-removebg-preview.png" data-tchmi-top="-149" data-tchmi-top-unit="px" data-tchmi-width="421" data-tchmi-width-unit="px" data-tchmi-visibility="%s%ADS.PLC1.GVL.TlYellowVisibility%/s%">
+
+<script data-tchmi-target-attribute="data-tchmi-transform" type="application/json">
+[
+  {
+    "transformType": "Rotate",
+    "angle": 90.0
+  }
+]
+</script>
+</div>
+<div id="Green" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="455" data-tchmi-height-unit="px" data-tchmi-left="759" data-tchmi-left-unit="px" data-tchmi-src="Images/city-green-traffic-light-icon-cartoon-style-vector-23509188-removebg-preview (1).png" data-tchmi-top="-149" data-tchmi-top-unit="px" data-tchmi-width="421" data-tchmi-width-unit="px" data-tchmi-creator-visibility="Visible" data-tchmi-visibility="%s%ADS.PLC1.GVL.TlGreenVisibility%/s%">
+
+<script data-tchmi-target-attribute="data-tchmi-transform" type="application/json">
+[
+  {
+    "transformType": "Rotate",
+    "angle": -90.0
+  }
+]
+</script>
+</div>
+<div id="Batman" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiVideo" data-tchmi-controls="false" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="371" data-tchmi-height-unit="px" data-tchmi-left="676" data-tchmi-left-unit="px" data-tchmi-mute="true" data-tchmi-top="245" data-tchmi-top-unit="px" data-tchmi-width="557" data-tchmi-width-unit="px" data-tchmi-visibility="%s%ADS.PLC1.GVL.HMI_Turtle_1_Display%/s%" data-tchmi-autoplay="true" data-tchmi-loop="true">
+<script data-tchmi-target-attribute="data-tchmi-src-list" type="application/json">
+[
+  {
+    "objectType": "VideoSource",
+    "source": "Images/batmanrendr.mp4",
+    "type": "video/mp4"
+  }
+]
+</script>
+
+</div>
+<div id="Superman" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiVideo" data-tchmi-controls="false" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="370" data-tchmi-height-unit="px" data-tchmi-left="676" data-tchmi-left-unit="px" data-tchmi-mute="true" data-tchmi-top="246" data-tchmi-top-unit="px" data-tchmi-width="557" data-tchmi-width-unit="px" data-tchmi-autoplay="true" data-tchmi-loop="true" data-tchmi-visibility="%s%ADS.PLC1.GVL.HMI_Turtle_2_Display%/s%">
+<script data-tchmi-target-attribute="data-tchmi-src-list" type="application/json">
+[
+  {
+    "source": "Images/SupermanRender.mp4",
+    "type": ""
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiDatagrid_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiDatagrid" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="543" data-tchmi-height-unit="px" data-tchmi-left="1744" data-tchmi-left-unit="px" data-tchmi-top="132" data-tchmi-top-unit="px" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-src-data="%s%ADS.PLC1.WinnersList.Winner_Array%/s%" data-tchmi-is-read-only="true" data-tchmi-row-height="50" data-tchmi-show-row-numbers="false" data-tchmi-row-numbers-resizable="false" data-tchmi-header-font-style="Normal" data-tchmi-header-height="0">
+
+
+<script data-tchmi-target-attribute="data-tchmi-cell-content-padding" type="application/json">
+{
+  "left": 3,
+  "leftUnit": "px",
+  "right": 3,
+  "rightUnit": "px",
+  "top": 0,
+  "topUnit": "px",
+  "bottom": 0,
+  "bottomUnit": "px"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 0,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "Solid",
+  "right": "None",
+  "top": "None",
+  "bottom": "None"
+}
+</script>
+</div>
+</div></div>

@@ -3,7 +3,7 @@
   <POU Name="MAIN" Id="{6bd994bd-d87f-4c72-b297-f74b8766d695}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	bEnable: BOOL;
+	(*bEnable: BOOL;
 	BEGIN : BOOL;
 	bDisable: BOOL;
 	bReset : BOOL;
@@ -34,12 +34,25 @@ VAR
 	Turns : ST_MoveCOptions;
 	RaceFinished : TON;
 	
+	
 	Turtle_1_Winner : BOOL ;
 	Turtle_2_Winner: BOOL;
 	
 	HMI_Settings_Hide : BOOL;
 	
 	Enabled_State: BOOL;
+	Start_Button_Pressed: BOOL;
+	
+	Traffic_timer : ton;
+	
+	TlRedVisibility : STRING := 'Visible';
+	TlGreenVisibility : STRING := 'Collapsed';
+	TlYellowVisibility : STRING := 'Collapsed';
+	
+	Trigger2 : F_TRIG;
+	HMI_Turtle_1_Display: STRING := 'collapsed';
+	HMI_Turtle_2_Display: STRING := 'Collapsed';
+	*)
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -49,6 +62,9 @@ cmdfb.Update();
 cmdfb2.Update();
 stMoverState := fbMover.MCTOPLC.STD.State;
 stMoverState2 := fbMover2.MCTOPLC.STD.State;
+
+
+
 
 IF bEnable THEN
 	fbMover.Enable(cmdfb);
@@ -122,28 +138,11 @@ CASE nCase OF
 			nCase := 60;
 		END_IF
 	
-	(*60: // race
-		IF START_RACE THEN
-			TON_Timer(IN := TRUE, PT := TimerInterval);
-			IF TON_Timer.Q THEN
-				randnumFB();
-				RandSpeed := randnumFB.RandomNumber;
-				randnumFB();
-				RandSpeed2 := randnumFB.RandomNumber;
-				fbDynMoveRace1.SetValuesVADJ(RandSpeed,5000,5000,25000);
-				fbDynMoveRace2.SetValuesVADJ(RandSpeed2,5000,5000,25000);
-				fbMover.Movetoposition(cmdFB,stMoverPositions[2],fbDynMoveRace1,0);
-				fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbDynMoveRace2,0);
-				TON_Timer(IN := FALSE);
-			END_IF
-		END_IF
-		IF cmdFB.Done AND cmdFB2.Done AND Start_Race THEN
-			START_RACE := FALSE;
-			nCase := 70;
-		END_IF
-		*)
 	60: // Start Race
-		IF START_RACE THEN
+		
+		
+		IF Start_Button_Pressed THEN
+			
 			randnumFB();
 			RandSpeed := randnumFB.RandomNumber;
 			randnumFB();
@@ -155,7 +154,10 @@ CASE nCase OF
 			nCase := 61;
 		END_IF
 	61: // Variable Speed
-		TON_Timer(IN := TRUE, PT := TimerInterval);
+			
+	
+	
+			TON_Timer(IN := TRUE, PT := TimerInterval);
 			IF TON_Timer.Q THEN
 				randnumFB();
 				RandSpeed := randnumFB.RandomNumber;
@@ -171,10 +173,10 @@ CASE nCase OF
 				nCase := 61;
 			END_IF
 			
-		IF 	cmdFB.Done AND NOT cmdFB2.done THEN
+		IF 	(cmdFB.Done) AND (NOT cmdFB2.done) THEN
 			Turtle_1_Winner := TRUE;
 		END_IF
-		IF NOT cmdFB.done AND cmdFB2.Done THEN
+		IF (NOT cmdFB.done) AND (cmdFB2.Done) THEN
 			Turtle_2_Winner := TRUE;
 		END_IF
 			
@@ -223,7 +225,10 @@ CASE nCase OF
 				
 END_CASE
 
+Traffic_Light();
+Winner_Display();
 WinnersList();
+
 
 ]]></ST>
     </Implementation>

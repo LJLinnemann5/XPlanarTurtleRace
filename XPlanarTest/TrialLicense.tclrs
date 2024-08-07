@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
+	<LicenseInfo>
+		<SystemId>{649CF4CB-8745-5291-878D-FEF4F7A97324}</SystemId>
+		<IssueTime>2024-08-07T14:06:00</IssueTime>
+		<ExpireTime>2024-08-15T00:00:00</ExpireTime>
+		<LicenseKey>ec4712d6fa8eb82df0fa44664cbba1e83d768755d06099c82b2ec857e24ab5fc48cae930a7470300be5b69e43f64508198935c713c897e8ecc42fc9edc9715555c1fa120863359cee18cf4cb5a4e20f7a34b01d04cb4fe8e630e8369c98320d22312aeb91adb65a366ad9448c3806bc81b3cdc387dc8c0f02afff85b464901065e35e3dccb269be796e92e531bd9da1c52f5ff99b2145c5751c7c9b7166c5671997a8acea14dd325da640cf7f660bd53597500e9e3466cbead7c90ae2e0f34b65f585fd766be3834f071b74ccad8e4532888f4daf0f95b742cec93598bf2353c90b4121174645b0939960b4b635168fb2bb82f4dc0f1be00c620093d6b5cf3f0</LicenseKey>
+		<License>
+			<LicenseId>{461F547B-9F81-4C4D-8BE6-01F8B3B14C86}</LicenseId>
+			<Name>TC3 Building Automation Basic</Name>
+			<OrderNo>TF8010</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{094750FD-A1AB-4B28-8DE8-8B6CACD0EDE6}</LicenseId>
+			<Name>TC3 Light Solution</Name>
+			<OrderNo>TF8050</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{6C4B2C28-7A9E-41AD-B5FE-6D61422A73D6}</LicenseId>
+			<Name>TC3 NC Camming</Name>
+			<OrderNo>TF5050</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{A15FA260-08A3-4DCD-93E9-5F22F7D234ED}</LicenseId>
+			<Name>TC3 Motion Pick-and-Place</Name>
+			<OrderNo>TF5420</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{DEA72F0A-9EA0-48F4-ABB5-766516202B8E}</LicenseId>
+			<Name>TC3 NC I</Name>
+			<OrderNo>TF5100</OrderNo>
+		</License>
+	</LicenseInfo>
+</TcLicenseInfo>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Winner_Display" Id="{4d1b5e63-5595-4c8a-8083-a168a8a00dfc}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Winner_Display
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF Turtle_1_Winner THEN					//Calls HMI to display Turtle WInner Animation
+	HMI_Turtle_1_Display := 'Visible';
+ELSIF Turtle_2_Winner THEN
+	HMI_Turtle_2_Display := 'Visible';
+ELSE
+	HMI_Turtle_1_Display := 'Collapsed';
+	HMI_Turtle_2_Display := 'Collapsed';
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

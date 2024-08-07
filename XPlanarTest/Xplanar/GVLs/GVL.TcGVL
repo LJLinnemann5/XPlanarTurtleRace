@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GVL" Id="{d5b073dc-b27d-4267-a1b2-d9af691eebc5}">
+    <Declaration><![CDATA[//{attribute 'qualified_only'}
+VAR_GLOBAL
+	bEnable: BOOL;
+	BEGIN : BOOL;
+	bDisable: BOOL;
+	bReset : BOOL;
+	Ready : BOOL;
+	START_RACE: BOOL;
+	nCase : UINT :=10;
+	fbMover : MC_PlanarMover;
+	fbMover2 : MC_PlanarMover;
+	cmdFB: MC_Planarfeedback;
+	cmdFB2:MC_Planarfeedback;
+	cmdFB3:MC_Planarfeedback;
+	cmdFB4:MC_Planarfeedback;
+	stMoverState: MC_Planar_State;
+	stMoverState2: MC_Planar_State;
+	stMoverPositions : ARRAY [1..14] OF PositionXYC;
+	fbDynMove : DynamicConstraint_PathXY;
+	fbDynMoveRace1 : DynamicConstraint_PathXY;
+	fbDynMoveRace2 : DynamicConstraint_PathXY;
+	fbDynRotate : DynamicConstraint_Coordinates;
+	stMoveCOptions : ST_MoveCOptions;
+	
+	randnumFB : randnum;
+	RandSpeed: LREAL;
+	RandSpeed2: LREAL;
+	TON_Timer : TON; // Declare a TON timer instance
+	TimerInterval : TIME := T#2s; // Timer interval of 1 second
+	DebugLog : STRING;
+	Turns : ST_MoveCOptions;
+	RaceFinished : TON;
+	
+	
+	Turtle_1_Winner : BOOL ;
+	Turtle_2_Winner: BOOL;
+	
+	HMI_Settings_Hide : BOOL;
+	
+	Enabled_State: BOOL;
+	Start_Button_Pressed: BOOL;
+	
+	Traffic_timer : tof;
+	
+	TlRedVisibility : STRING := 'Visible';
+	TlGreenVisibility : STRING := 'Collapsed';
+	TlYellowVisibility : STRING := 'Collapsed';
+	
+	Trigger2 : F_TRIG;
+	HMI_Turtle_1_Display: STRING := 'collapsed';
+	HMI_Turtle_2_Display: STRING := 'Collapsed';
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

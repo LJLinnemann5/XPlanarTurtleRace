@@ -144,7 +144,7 @@
     <Folder Include="Themes\Base\" />
     <Folder Include="Themes\Base-Dark\" />
     <Folder Include="Server">
-      <WorkingDirectory>Turtle Race HMI</WorkingDirectory>
+      <WorkingDirectory>Turtle_Race_HMI</WorkingDirectory>
     </Folder>
     <Folder Include="Properties" />
     <Content Include=".eslintrc.json">

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.34031.82
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "XPlanarTest", "XPlanarTest\XPlanarTest.tsproj", "{029B9E89-151B-42A8-9A19-C9FAA97F7E00}"
 EndProject
-Project("{FE7A1B72-C5B7-4D7C-BB7D-76384D4DE8E1}") = "Turtle Race HMI", "Turtle Race HMI\Turtle Race HMI.hmiproj", "{86BAD8EA-FC9B-4F15-BE01-D270A375CC9C}"
+Project("{FE7A1B72-C5B7-4D7C-BB7D-76384D4DE8E1}") = "Turtle_Race_HMI", "Turtle Race HMI\Turtle_Race_HMI.hmiproj", "{86BAD8EA-FC9B-4F15-BE01-D270A375CC9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="HMI_UpdateMoverStatus" Id="{aef03ed6-b742-458d-8850-4883ad02c7ff}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM HMI_UpdateMoverStatus
+VAR
+	Status_Enabled : String := 'Enabled';
+	Status_Disabled : STRING := '#FFFF0000';
+	Status_Running : STRING := '#FF15FF00';
+	Status_Error : STRING := '#FFF1FF00';
+	
+	Mover1State : STRING;
+	Mover2State : STRING;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+CASE StMoverState OF
+	0://Invalid
+		Mover1State := Status_Error;
+	1://Disabled
+		Mover1State := Status_Disabled;
+	2://Enabling
+Mover1State := Status_Enabled;
+	3://Enabled
+		Mover1State := Status_Enabled;
+	4://Disabling
+		Mover1State := Status_Disabled;
+	5://Error
+		Mover1State := Status_Error;
+	6://ErrorPending
+		Mover1State := Status_Error;
+	7://Resetting
+		Mover1State := Status_Error;
+END_CASE
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

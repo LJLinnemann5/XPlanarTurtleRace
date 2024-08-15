@@ -1,0 +1,119 @@
+<div id="Settings" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1200" data-tchmi-width-unit="%" data-tchmi-height="750" data-tchmi-height-unit="%" data-tchmi-height-mode="Content" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+<div id="TcHmiButton_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="105" data-tchmi-height-unit="px" data-tchmi-left="200" data-tchmi-left-unit="px" data-tchmi-text="Error Reset" data-tchmi-top="75" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="60">
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 211, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 10.0,
+  "topRight": 10.0,
+  "bottomLeft": 10.0,
+  "bottomRight": 10.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+</div>
+<div id="TcHmiTextbox_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-left="98" data-tchmi-left-unit="px" data-tchmi-text="Mover 1" data-tchmi-top="245" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-opacity="1" data-tchmi-auto-focus-out="false" data-tchmi-is-read-only="true" data-tchmi-text-font-size="30" data-tchmi-text-horizontal-alignment="Center">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 10.0,
+  "topRight": 10.0,
+  "bottomLeft": 10.0,
+  "bottomRight": 10.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div id="TcHmiTextbox_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-horizontal-scroll="Auto" data-tchmi-left="98" data-tchmi-left-unit="px" data-tchmi-text="Mover 2" data-tchmi-top="387" data-tchmi-top-unit="px" data-tchmi-vertical-scroll="Auto" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-opacity="1" data-tchmi-auto-focus-out="false" data-tchmi-is-read-only="true" data-tchmi-text-font-size="30" data-tchmi-text-horizontal-alignment="Center">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 10.0,
+  "topRight": 10.0,
+  "bottomLeft": 10.0,
+  "bottomRight": 10.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>

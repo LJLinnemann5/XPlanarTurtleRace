@@ -164,9 +164,13 @@ CASE nCase OF
 				randnumFB();
 				RandSpeed2 := randnumFB.RandomNumber;
 				fbDynMoveRace1.SetValuesVADJ(RandSpeed,5000,5000,25000);
-				fbDynMoveRace2.SetValuesVADJ(RandSpeed2,5000,5000,25000);
-				fbMover.Movetoposition(cmdFB,stMoverPositions[2],fbDynMoveRace1,0);
-				fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbDynMoveRace2,0);
+				fbDynMoveRace2.SetValuesVADJ(RandSpeed2,5000,5000,25000);				
+				fbMover.Movetoposition(cmdFB,stMoverPositions[2],fbdynMoverace1,0);
+				fbMover2.Movetoposition(cmdFB2,stMoverPositions[4],fbDynMoveRace2,0);		
+								
+			
+				
+				
 				//fbMover.Reset(cmdFB);
 				//fbMover2.Reset(cmdFB2);
 				TON_Timer(IN := FALSE);
@@ -228,6 +232,7 @@ END_CASE
 Traffic_Light();
 Winner_Display();
 WinnersList();
+HMI_UpdateMoverStatus();
 
 
 ]]></ST>

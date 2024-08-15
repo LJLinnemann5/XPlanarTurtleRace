@@ -22,7 +22,7 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <TcHmi_Beckhoff_TwinCAT_HMI_Server_Engineering_IncludeInArchive>False</TcHmi_Beckhoff_TwinCAT_HMI_Server_Engineering_IncludeInArchive>
     <Name>Turtle Race HMI</Name>
-    <HmiCommunicationRouterPort>10101</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10103</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13000</HmiCommunicationServerAuthPort>
     <HmiInitial>14.1.345.1</HmiInitial>
     <HmiRecent>14.1.345.1</HmiRecent>
@@ -150,6 +150,10 @@
     <Content Include=".eslintrc.json">
       <Visible>false</Visible>
     </Content>
+    <Content Include="Content\jquery.excoloSlider.css">
+      <SubType>Content</SubType>
+      <DependentUpon>Pages\Controls.content</DependentUpon>
+    </Content>
     <Content Include="Functions\UpdateLanguageIcon.function.json">
       <SubType>Content</SubType>
       <DependentUpon>Functions\UpdateLanguageIcon.js</DependentUpon>
@@ -200,6 +204,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Pages\HostContent.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Pages\Settings.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Server\ADS\ADS.Config.default.json">
